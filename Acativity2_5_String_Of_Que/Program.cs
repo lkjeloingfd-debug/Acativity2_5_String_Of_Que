@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,24 +27,24 @@ namespace Acativity2_5_String_Of_Que
             }
             string searchTown = "";
             Console.WriteLine("List of Towns:"+"\nenter(strop) to stop searching");
-            do {
-                Console.WriteLine("Enter town to search: ");
-                searchTown = Console.ReadLine();
-                if (towns.Contains(searchTown))
-                {
-                    Console.WriteLine($"Town found: [{searchTown}]");
+            Console.WriteLine("Enter town to search: ");
+            
+            do {               
+                    searchTown = Console.ReadLine();
+                    if (towns.Contains(searchTown))
+                    {
+                        Console.WriteLine($"Town found: [{searchTown}]");
+                    }
+                    else
+                    {
+                    if (searchTown != "stop") Console.WriteLine("Town not found");
                 }
-                else
+                if (searchTown != "stop")
                 {
-                    Console.WriteLine("Town not found");
+                    Console.WriteLine("Enter town to search: ");
                 }
 
-            }while (searchTown != "stop");
-
-
-            printItems(strung);
-
-                       
+            }while (searchTown != "stop");           
             Console.ReadKey();
         }
         //print items in list
